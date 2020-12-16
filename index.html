@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <style>
+        body {
+            background-color: #ECF0F1;
+        }
+        h1, h2, h3, th {
+            color: #2C3E50;
+        }
+
+        @media (min-width: 768px) {
+            #chartsSection {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 50px;
+            }
+
+            #chartsSection > * {
+                width: calc(50% - 10px);
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <main>
+        <section class="wrapper" id="chartsSection">
+            <div>
+                <h2>Deal Types</h2>
+            <canvas id="dealTypes"></canvas>
+            </div>
+            <div>
+                <h2>Lead Sources</h2>
+            <canvas id="leadSource"></canvas>
+            </div>
+        </section>
+        <section class="wrapper">
+            <h2>The Group at RE/MAX Deals | 2020</h2>
+            <table id="thegroup_table-of-deals" class="display cell-border stripe compact" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="width: 12%">Agent Name</th>
+                        <th style="width: 25%">Property</th>
+                        <th style="width: 25%">Client Name(s)</th>
+                        <th>Count</th>
+                        <th style="width: 8%">Deal Type</th>
+                        <th style="width: 10%">Lead Type</th>
+                        <th style="width: 10%">Team Split</th>
+                        <th style="width: 12%">Tier</th>
+                    </tr>
+                </thead>
+                <tbody id="thegroup_deals">
+                    <tr style="display: none;">
+                        <td>Donna Snider</td>
+                        <td>Customer Support</td>
+                        <td>New York</td>
+                        <td>27</td>
+                        <td>2011/01/25</td>
+                        <td>$112,000</td>
+                        <td>$112,000</td>
+                        <td>$112,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </>
+
+    </main>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <!-- ChartJS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <!-- Custom Scripts -->
+    <script src="assets/js/scripts.js"></script>
+
+
+</body>
+</html>
