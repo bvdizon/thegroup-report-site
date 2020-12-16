@@ -1,14 +1,35 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
+    background-color: #ECF0F1;
 }
 
-table {
-    text-align: left;
+h1,
+h2,
+h3,
+th {
+    color: #2C3E50;
 }
 
 .wrapper {
     width: 1366px;
     max-width: 100%;
     margin: auto;
+}
+
+@media (min-width: 768px) {
+    #chartsSection {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    #chartsSection>* {
+        width: calc(50% - 10px);
+    }
+}
+
+table {
+    text-align: left;
 }
