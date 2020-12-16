@@ -4,7 +4,6 @@ const gsheet_deals_api = `https://spreadsheets.google.com/feeds/list/${gsheet_id
 
 // DOM Handlers
 let thegroup_deals = document.getElementById('thegroup_deals');
-const example = document.getElementById('example');
 
 // Fetching Google JSON Data
 function get_all_deals(callback) { 
@@ -13,15 +12,13 @@ function get_all_deals(callback) {
         .then(data => { 
             callback(data);
             $(document).ready(function() {
-                $('#thegroup_table-of-deals').DataTable({
-                    "stateSave": true
-                });
-
+                $('#thegroup_table-of-deals').DataTable();
             } );
         })
         .catch(err => console.log(err));
 }
 
+// Callback function for FETCH
 function process_all_deals(data) {
     let rows = data.feed.entry;
     let deal_details = rows.filter(row => row);
@@ -42,6 +39,7 @@ function process_all_deals(data) {
     });
 }
 
+// Calling the function to fetch and passing a callback
 get_all_deals(process_all_deals);
 
 
@@ -49,8 +47,6 @@ get_all_deals(process_all_deals);
 /****************************
  * CHART JS
 *****************************/
-
-
 
 // Fetching Google JSON Data
 function get_gsheet_data() { 
@@ -65,13 +61,13 @@ function get_gsheet_data() {
 
             let team_leads = rows.filter(row => row.gsx$leadtype.$t === 'Team Lead');
             let agent_soi = rows.filter(row => row.gsx$leadtype.$t === 'SOI');
-            
+            // array values based on filters
             const deal_types = [
                 buyer_side.length,
                 list_side.length,
                 double_end.length
             ];
-
+            // array values based on filters
             const lead_source = [
                 team_leads.length,
                 agent_soi.length
@@ -85,8 +81,10 @@ function get_gsheet_data() {
     
 }
 
-const x = get_gsheet_data();
+// Calling the function to fetch API data
+get_gsheet_data();
 
+// Function to display chart for Deal Types
 function dealTypes_piechart(arr) { 
     var ctx = document.getElementById('dealTypes');
     var myChart = new Chart(ctx, {
@@ -119,11 +117,9 @@ function dealTypes_piechart(arr) {
             }
         }
     });
-
 }
 
-
-
+// Function to display chart for Lead Source
 function leadSource_piechart(arr) { 
     var ctx = document.getElementById('leadSource');
     var myChart = new Chart(ctx, {
